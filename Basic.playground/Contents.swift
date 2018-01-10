@@ -91,3 +91,16 @@ repeat {
     m = m * 2
 } while m < 50
 print("Nilai m: \(m)")
+
+// for loop in range
+var total = 0
+for i in 0..<4 {
+    total += i
+}
+print("Nilai total: \(total)")
+
+total = 0
+for i in 0...4 {
+    total += i
+}
+print("Nilai total: \(total)")
