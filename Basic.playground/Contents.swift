@@ -78,3 +78,16 @@ for (kind, numbers) in interestingNumbers {
     }
 }
 print("Largest number \(largest)")
+
+// while
+var n = 2
+while n < 50 {
+    n = n * 2
+}
+print("Nilai n: \(n)")
+
+var m = 2
+repeat {
+    m = m * 2
+} while m < 50
+print("Nilai m: \(m)")
