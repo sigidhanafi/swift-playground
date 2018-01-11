@@ -104,3 +104,60 @@ for i in 0...4 {
     total += i
 }
 print("Nilai total: \(total)")
+
+
+
+// function
+func greeting(person: String, day: String) -> String {
+    return "Halo \(person), selamat \(day)."
+}
+
+greeting(person: "Sigit", day: "siang")
+
+// no argument label
+func greetingAgain(_ person: String, customLabel day: String) -> String {
+    return "Halo \(person), selamat \(day)."
+}
+
+greetingAgain("Sigit Hanafi", customLabel: "siang")
+
+
+// return multiple value
+func calculateStatisitc(scores: [Int]) -> (min: Int, max: Int, sum: Int) {
+    var min = scores[0]
+    var max = scores[0]
+    var sum = 0
+    
+    for score in scores {
+        if score > max {
+            max = score
+        } else if score < min {
+            min = score
+        }
+        
+        sum += score
+    }
+    
+    return (min, max, sum)
+}
+
+let statistic = calculateStatisitc(scores: [1, 2, 3, 4, 5, 6, 7])
+
+print("min: \(statistic.min)")
+print("max: \(statistic.max)")
+print("sum: \(statistic.sum)")
+
+// nested function
+func returnFifteen() -> Int {
+    var y = 10
+    
+    func add () {
+        y += 5
+    }
+    
+    add()
+    
+    return y
+}
+
+returnFifteen()
