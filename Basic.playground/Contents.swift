@@ -161,3 +161,15 @@ func returnFifteen() -> Int {
 }
 
 returnFifteen()
+
+// function as first class that can return another function and its value
+func makeIncrementer() -> ((Int) -> Int) {
+    func addOne(number: Int) -> Int {
+        return 1 + number
+    }
+    
+    return addOne
+}
+
+var incrementer = makeIncrementer()
+incrementer(7)
