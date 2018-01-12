@@ -173,3 +173,20 @@ func makeIncrementer() -> ((Int) -> Int) {
 
 var incrementer = makeIncrementer()
 incrementer(7)
+
+// function take another function as parameter
+func hasAnyMatches(list: [Int], condition: (Int) -> Bool) -> Bool {
+    for item in list {
+        if condition(item) {
+            return true
+        }
+    }
+    return false
+}
+
+func lestThanTen(number: Int) -> Bool {
+    return number < 10
+}
+
+var numbers = [1, 3, 5, 7, 8]
+hasAnyMatches(list: numbers, condition: lestThanTen)
