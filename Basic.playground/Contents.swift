@@ -190,3 +190,29 @@ func lestThanTen(number: Int) -> Bool {
 
 var numbers = [1, 3, 5, 7, 8]
 hasAnyMatches(list: numbers, condition: lestThanTen)
+
+
+// class
+class Shape {
+    var numberOfSides = 0
+    var name: String
+    
+    // init=> initializer to set up the class when an instance is created
+    init(name: String) {
+        self.name = name
+    }
+    
+    func simpleDescription() -> String {
+        return "A shape with \(numberOfSides) sides."
+    }
+}
+
+// instance of the class
+var shape = Shape()
+shape.numberOfSides = 8
+var shapeDesc = shape.simpleDescription()
+
+
+
+
+
