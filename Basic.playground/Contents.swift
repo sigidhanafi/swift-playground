@@ -196,23 +196,52 @@ hasAnyMatches(list: numbers, condition: lestThanTen)
 class Shape {
     var numberOfSides = 0
     var name: String
+    // if using et, instace can't mutate data
+    let lastName: String
     
     // init=> initializer to set up the class when an instance is created
     init(name: String) {
         self.name = name
+        self.lastName = "Hanafi"
     }
     
     func simpleDescription() -> String {
-        return "A shape with \(numberOfSides) sides."
+        return "A shape with \(numberOfSides) sides. \(name) \(lastName)"
     }
 }
 
 // instance of the class
-var shape = Shape()
+var shape = Shape(name: "Sigit")
 shape.numberOfSides = 8
+//shape.lastName = "Ealaaah"
 var shapeDesc = shape.simpleDescription()
 
 
+//print("Max int \(UInt8.max)")
+//print("Max int \(UInt8.min)")
+
+func testFor() -> String {
+    let numbers = [1, 2, 3, 5, 6, 7]
+    for item in numbers {
+        if (item == 1) {
+            return "Halo"
+        }
+    }
+    return "Ealah"
+}
+
+testFor()
 
 
+//closure example: closure => block of code, that can be called later
+numbers = [1, 2, 3]
+let manipulateNUmberWithClosuse = numbers.map({ (number: Int) -> Int in
+    let result = 2 * number
+    return result
+})
+print("\(manipulateNUmberWithClosuse)")
+
+//closure without parenthesis
+let sortedNumbers = numbers.sorted { $0 > $1 }
+print(sortedNumbers)
 
