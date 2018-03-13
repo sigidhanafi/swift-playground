@@ -8,6 +8,7 @@ protocol ExampleProtocol {
 class SimpleClass: ExampleProtocol {
     var simpleDescription: String = "A very simple class"
     var anotherProperty: Int = 69105
+    // no need mutation keyword because class can always modify the class
     func adjust() {
         simpleDescription += " Now 100% adjusted."
     }
