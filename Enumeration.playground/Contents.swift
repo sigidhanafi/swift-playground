@@ -1,9 +1,10 @@
 //: Playground - noun: a place where people can play
 
 enum Rank: Int {
-    case ace = 1
+    case ace = 1 // manual assign raw value
     case two, three, four, five, six, seven, eight, nine, ten
-    case jack, queen, king
+    case jack, queen
+    case king = 32 // manual assign raw value
     func simpleDescription() -> String {
         switch self {
         case .ace:
