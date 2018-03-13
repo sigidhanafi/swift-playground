@@ -30,3 +30,38 @@ if (ace.rawValue == anotherAce.rawValue) {
     print("Hohooo, tidak sama")
 }
 
+
+enum Suit {
+    case spades, hearts, diamonds, clubs
+    
+    func simpleDescription() -> String {
+        switch self {
+        case .spades:
+            return "spades"
+        case .hearts:
+            return "hearts"
+        case .diamonds:
+            return "diamonds"
+        case .clubs:
+            return "clubs"
+        default:
+            return "undefined"
+        }
+    }
+    
+    func color() -> String {
+        switch self {
+        case .spades, .clubs:
+            return "black"
+        case .hearts, .diamonds: // multiple description
+            return "red"
+        default:
+            return "undefined"
+        }
+    }
+}
+
+let hearts = Suit.hearts
+let heartsDescription = hearts.simpleDescription()
+let color = hearts.color()
+
