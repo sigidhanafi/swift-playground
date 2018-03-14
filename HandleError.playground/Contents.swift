@@ -17,6 +17,7 @@ func send(job: Int, toPrinter printerName: String) throws -> String {
     return "Job sent"
 }
 
+// Hanlde error using do catch
 do {
     let sendJob = try send(job: 1000, toPrinter: "Never Has Toner")
     print(sendJob)
@@ -34,3 +35,7 @@ do {
 } catch {
     print(error)
 }
+
+// handle error using optional value of the result, if success will return success, if has error will return nill value
+let printerSuccess = try? send(job: 10000, toPrinter: "Printer is on fire")
+print(printerSuccess)
