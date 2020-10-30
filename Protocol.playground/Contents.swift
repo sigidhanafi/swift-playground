@@ -1,7 +1,7 @@
 //: Playground - noun: a place where people can play
 
 protocol ExampleProtocol {
-    var simpleDescription: String { get }
+    var simpleDescription: String { get set }
     mutating func adjust()
 }
 
@@ -42,4 +42,4 @@ extension Int: ExampleProtocol {
         self += 42
     }
 }
-print(8.simpleDescription)
+print(b.simpleDescription)

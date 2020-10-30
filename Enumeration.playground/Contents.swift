@@ -44,8 +44,9 @@ enum Suit {
             return "diamonds"
         case .clubs:
             return "clubs"
-        default:
-            return "undefined"
+//         default will only call if we are not spesify test on every case
+//        default:
+//            return "undefined"
         }
     }
     
@@ -55,8 +56,9 @@ enum Suit {
             return "black"
         case .hearts, .diamonds: // multiple description
             return "red"
-        default:
-            return "undefined"
+//        default will only call if we are not spesify test on every case
+//        default:
+//            return "undefined"
         }
     }
 }
@@ -65,3 +67,79 @@ let hearts = Suit.hearts
 let heartsDescription = hearts.simpleDescription()
 let color = hearts.color()
 
+// Enum Associate value
+enum Activity {
+    case bored
+    case talking(topic: String)
+    case running(where: String)
+}
+
+let myActivity = Activity.talking(topic: "Swift")
+print(myActivity)
+
+switch myActivity {
+case .talking(topic: "Another Thing"):
+    print("Topic tentang another thing")
+case .talking(topic: "Swift"):
+    print("Topic yang diobrolin soal Swift")
+default:
+    print("Default")
+}
+
+
+// Enum, in traditional, each enum case was only a label for integer value, start from  0
+// is we use int on each case, we can access raw value?
+// answer:
+enum TestInt: Int {
+    case one
+    case two
+}
+
+let myOne = TestInt.one.rawValue
+let myTwo = TestInt.two.rawValue
+
+let anotherOne = TestInt.init(rawValue: 3)
+// the answer is, yes. it has raw value
+
+// Raw Value. with raw value, we can modify value on each case with string manually. it's called raw Value
+enum Airport: String {
+    case munich = "MUC"
+    case sanFrancisco = "SFO"
+    case singapore = "SIN"
+}
+
+let myMunich = Airport.munich
+// we can construct raw value to case, and it have same value
+let myAnotherMunich = Airport.init(rawValue: myMunich.rawValue)
+
+
+// Associate value, if in london, have multiple airport
+enum AnotherAirport: String {
+    case munich = "MUC"
+    case londonStansted = "STN"
+    case londonHeathrow = "LHR"
+}
+// it's weird, we should use associate value
+enum AnotherAirportAssociate {
+    case munich
+    case london(name: LondonAirport)
+}
+
+enum LondonAirport: String {
+    case stansted = "STN"
+    case heathrow = "HTW"
+    case gatwick = "GTK"
+}
+
+var airport: AnotherAirportAssociate
+var munichAirportName = AnotherAirportAssociate.munich
+var stanstedAirportName = AnotherAirportAssociate.london(name: LondonAirport.stansted)
+
+print(stanstedAirportName)
+
+switch stanstedAirportName {
+case .london(name: .stansted):
+    print("stansted")
+default:
+    print("default")
+}
